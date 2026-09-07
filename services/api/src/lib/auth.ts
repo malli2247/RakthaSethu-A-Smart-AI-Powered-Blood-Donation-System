@@ -8,4 +8,6 @@ export const comparePassword = async (password: string, hash: string): Promise<b
   bcrypt.compare(password, hash);
 
 export const signAccessToken = (userId: string, role: string): string =>
-  jwt.sign({ sub: userId, role }, env.JWT_SECRET, { expiresIn: env.JWT_EXPIRES_IN });
+  jwt.sign({ sub: userId, role }, env.JWT_SECRET, {
+    expiresIn: env.JWT_EXPIRES_IN as jwt.SignOptions['expiresIn']
+  });
