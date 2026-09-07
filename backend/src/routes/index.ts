@@ -1,0 +1,30 @@
+import { Router } from 'express';
+import { adminRoutes } from '../modules/admin/routes';
+import { authRoutes } from '../modules/auth/routes';
+import { bloodBankRoutes } from '../modules/blood-banks/routes';
+import { bloodRequestRoutes } from '../modules/blood-requests/routes';
+import { donationRoutes } from '../modules/donations/routes';
+import { donorRoutes } from '../modules/donors/routes';
+import { hospitalRoutes } from '../modules/hospitals/routes';
+import { inventoryRoutes } from '../modules/inventory/routes';
+import { matchingRoutes } from '../modules/matching/routes';
+import { notificationRoutes } from '../modules/notifications/routes';
+import { patientRoutes } from '../modules/patients/routes';
+import { userRoutes } from '../modules/users/routes';
+import { healthRouter } from './health';
+
+export const apiRouter = Router();
+
+apiRouter.use('/health', healthRouter);
+apiRouter.use('/auth', authRoutes);
+apiRouter.use('/users', userRoutes);
+apiRouter.use('/donors', donorRoutes);
+apiRouter.use('/patients', patientRoutes);
+apiRouter.use('/hospitals', hospitalRoutes);
+apiRouter.use('/blood-banks', bloodBankRoutes);
+apiRouter.use('/blood-requests', bloodRequestRoutes);
+apiRouter.use('/matching', matchingRoutes);
+apiRouter.use('/donations', donationRoutes);
+apiRouter.use('/inventory', inventoryRoutes);
+apiRouter.use('/notifications', notificationRoutes);
+apiRouter.use('/admin', adminRoutes);
